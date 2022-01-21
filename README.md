@@ -2,8 +2,12 @@
 This repository contains codes and data required to generate deep learning formulations of transpiration stress using Tensorflow. Author: Akash Koppa Contact: akash.koppa@ugent.be
 
 **System Requirements**
+Operating System: Linux, MacOS, Windows
+
+Software: conda (version > 4.0)
 
 **Installation Guide**
+
 
 **Demo Guide**
 
