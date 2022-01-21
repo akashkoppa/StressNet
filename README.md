@@ -11,11 +11,12 @@ Optional Software: CUDA to use GPU support (Please consult the relevant instruct
 
 **StressNet has been tested on the following specifications**:
 ```
-Operating System: Elementary OS 6.1 (Jólnir) (Based on Ubuntu 20.04.3 LTS 
-                  and Linux Kernel 5.13.0-25-generic)
-Processor (CPU):        AMD Ryzen threadripper 3960x 24-core
-Memory:           128gb
-Graphics Card (GPU):    NVIDIA GeForce RTX 2070 Super
+Operating System:    Elementary OS 6.1 (Jólnir) 
+                     (Based on Ubuntu 20.04.3 LTS)
+Linux Kernel:        Linux Kernel 5.13.0-25-generic
+Processor (CPU):     AMD Ryzen threadripper 3960x 24-core
+Memory:              128gb
+Graphics Card (GPU): NVIDIA GeForce RTX 2070 Super
 NOTE: GPU is optional. 
 ```
 
