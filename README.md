@@ -9,7 +9,14 @@ Software: conda (version > 4.0) - Anaconda, Miniconda or anyother virtual enviro
 
 ## Installation Guide
 
-The following installation guide is based on the Linux-based OS. Similar commands can be used in MacOS (terminal) or Windows (Anaconda terminal)
+The commans in this installation guide is based on the Linux-based OS. Similar commands can be used in MacOS (terminal) or Windows (Anaconda terminal). The following commands should be entered in the terminal.
+
+Create a conda environment and activate it
+```
+conda create --name stressnet
+conda activate stressnet
+
+```
 
 
 ## Demo Guide
