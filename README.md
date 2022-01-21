@@ -9,6 +9,14 @@ Software: conda (version > 4.0) - Anaconda, Miniconda or anyother virtual enviro
 
 Optional Software: CUDA to use GPU support (Please consult the relevant instructions from NVIDIA for specific operating systems and graphics cards). 
 
+**StressNet has been tested on the following specifications**:
+```
+Operating System: Elementary OS 6.1 (Jólnir) (Based on Ubuntu 20.04.3 LTS and Linux Kernel 5.13.0-25-generic)
+
+
+```
+
+
 ## Installation Guide
 
 The commans in this installation guide is based on the Linux-based OS. Similar commands can be used in MacOS (terminal) or Windows (Anaconda terminal). The following commands should be entered in the terminal.
@@ -21,10 +29,13 @@ conda activate stressnet
 
 2. Install the required packages and libraries
 ```
-conda install pip (
-
+conda install pip
+pip install -- upgrade tensorflow
+pip install pandas
+pip install tables
+pip install matplotlib
 ```
-
+Resource for installing tensorflow including activating GPU support can be found in: https://www.tensorflow.org/install/
 
 ## Demo Guide
 
