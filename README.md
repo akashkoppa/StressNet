@@ -1,19 +1,20 @@
 # StressNet
 This repository contains codes and data required to generate deep learning formulations of transpiration stress using Tensorflow. Author: Akash Koppa Contact: akash.koppa@ugent.be
 
-**System Requirements**
+## System Requirements
+
 Operating System: Linux, MacOS, Windows
 
 Software: conda (version > 4.0)
 
-**Installation Guide**
+## Installation Guide
 
 
-**Demo Guide**
+## Demo Guide
 
-**Usage Guide**
+## Usage Guide
 
-**Reference**
+### Reference
 
 Koppa, A., Rains, D., Hulsman, P., & Miralles, D. (2021). A Deep Learning-Based Hybrid Model of Global Terrestrial Evaporation. Preprint. DOI: 10.21203/rs.3.rs-827869/v1
 
