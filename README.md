@@ -1,5 +1,9 @@
 # StressNet
-This repository contains codes and data required to generate deep learning formulations of transpiration stress using Tensorflow. Author: Akash Koppa Contact: akash.koppa@ugent.be
+This repository contains codes and data required to generate deep learning formulations of transpiration stress using Tensorflow. 
+
+Author: Akash Koppa 
+
+Contact: `akash.koppa@ugent.be`
 
 ## System Requirements
 
