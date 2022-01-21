@@ -49,14 +49,25 @@ The files in the `demo` folder demonstrates the training of the stressnet for a 
 3. `input` folder: containing the input files required for training the StressNet.
 
 NOTES:
-1. Please use the `train_demo.py` to test the code. The code is well-commented and the sequence of steps required to create the StressNet is logically designed.
-2. The  
+1. Please use the `train_demo.py` script to test the code. The code is well-commented and the sequence of steps required to create the StressNet is logically designed.
+2. Any changes to the hyperparameters or the input data configurations can be done in the `stressnet_functions.py` script. 
 
+**Expected Outcome**: 1) A deep learning model based on the input data. 2) A graph showing the evolution of the training process in terms of the changes in the loss function (KGE in this case).
+
+**Expected Run Time**: ~45 min. 
 
 ## Usage Guide
+1. The `python` scripts used to generate the final StressNet formulations of transpiration stress for tall (`train_tall_vegetation.py`) and short (`train_short_vegetation.py`) vegetation (presented in the research article) alongwith the entire dataset is in the `stressnet` folder. The usage is similar to the demo file. 
+2. The final trained StressNet formulations for both tall and short vegetation are present in `hybrid_paper/trained_stressnet` folder
+3. The expected runtime for training both the tall and short vegetation is ~3 hours. 
 
 ### Reference
 
-Koppa, A., Rains, D., Hulsman, P., & Miralles, D. (2021). A Deep Learning-Based Hybrid Model of Global Terrestrial Evaporation. Preprint. DOI: 10.21203/rs.3.rs-827869/v1
+Koppa, A., Rains, D., Hulsman, P., & Miralles, D. (2021). A Deep Learning-Based Hybrid Model of Global Terrestrial Evaporation. Preprint. DOI: 10.21203/rs.3.rs-827869/v1.
 
 Description: A version of StressNet for tall and short vegetation has been combined with a process-based model - Global Land Evaporation Amsterdam Model (GLEAM) - to create a hybrid model of global terrestrial evaporation. The resulting deep learning formulations and the hybrid model are detailed in the preprint. The manuscript is currently under review.
+
+**NOTE**: All the data and codes required to reproduce the figures in the reference research article are available in the `hybrid_paper` folder. The data for the figures are available from https://doi.org/10.5281/zenodo.5886608
+
+
+
