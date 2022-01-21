@@ -3,18 +3,25 @@ This repository contains codes and data required to generate deep learning formu
 
 ## System Requirements
 
-Operating System (OS): Linux, MacOS, Windows
+Operating System (OS): Linux, MacOS, Windows.
 
-Software: conda (version > 4.0) - Anaconda, Miniconda or anyother virtual environment.  
+Software: conda (version > 4.0) - Anaconda, Miniconda or anyother virtual environment.
+
+Optional Software: CUDA to use GPU support (Please consult the relevant instructions from NVIDIA for specific operating systems and graphics cards). 
 
 ## Installation Guide
 
 The commans in this installation guide is based on the Linux-based OS. Similar commands can be used in MacOS (terminal) or Windows (Anaconda terminal). The following commands should be entered in the terminal.
 
-Create a conda environment and activate it
+1. Create a conda environment and activate it.
 ```
 conda create --name stressnet
 conda activate stressnet
+```
+
+2. Install the required packages and libraries
+```
+conda install pip (
 
 ```
 
