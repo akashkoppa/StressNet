@@ -11,11 +11,13 @@ Optional Software: CUDA to use GPU support (Please consult the relevant instruct
 
 **StressNet has been tested on the following specifications**:
 ```
-Operating System: Elementary OS 6.1 (Jólnir) (Based on Ubuntu 20.04.3 LTS and Linux Kernel 5.13.0-25-generic)
-
-
+Operating System: Elementary OS 6.1 (Jólnir) (Based on Ubuntu 20.04.3 LTS 
+                  and Linux Kernel 5.13.0-25-generic)
+Processor (CPU):        AMD Ryzen threadripper 3960x 24-core
+Memory:           128gb
+Graphics Card (GPU):    NVIDIA GeForce RTX 2070 Super
+NOTE: GPU is optional. 
 ```
-
 
 ## Installation Guide
 
@@ -35,9 +37,21 @@ pip install pandas
 pip install tables
 pip install matplotlib
 ```
-Resource for installing tensorflow including activating GPU support can be found in: https://www.tensorflow.org/install/
+Typical install time: ~30 minutes for all the packages.
+
+NOTE: Resource for installing tensorflow including activating GPU support can be found in: https://www.tensorflow.org/install/
 
 ## Demo Guide
+The files in the `demo` folder demonstrates the training of the stressnet for a subset of the data used in the research article (details in the usage guide). The folder consists of the following files:
+
+1. `train_demo.py`: this is the main python script which consists of the code to train a deep neural net (stressnet) for the given input data.
+2. `stressnet_functions.py`: contains functions to preprocess the input data into a format amenable to tensorflow, the Kling-Gupta efficiency (KGE) loss function, and the deep learning architecture of the stressnet. 
+3. `input` folder: containing the input files required for training the StressNet.
+
+NOTES:
+1. Please use the `train_demo.py` to test the code. The code is well-commented and the sequence of steps required to create the StressNet is logically designed.
+2. The  
+
 
 ## Usage Guide
 
