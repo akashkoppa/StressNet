@@ -3,11 +3,13 @@ This repository contains codes and data required to generate deep learning formu
 
 ## System Requirements
 
-Operating System: Linux, MacOS, Windows
+Operating System (OS): Linux, MacOS, Windows
 
-Software: conda (version > 4.0)
+Software: conda (version > 4.0) - Anaconda, Miniconda or anyother virtual environment.  
 
 ## Installation Guide
+
+The following installation guide is based on the Linux-based OS. Similar commands can be used in MacOS (terminal) or Windows (Anaconda terminal)
 
 
 ## Demo Guide
