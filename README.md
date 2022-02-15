@@ -26,7 +26,7 @@ NOTE: GPU is optional.
 
 ## Installation Guide
 
-The commans in this installation guide is based on the Linux-based OS. Similar commands can be used in MacOS (terminal) or Windows (Anaconda terminal). The following commands should be entered in the terminal.
+The commands in this installation guide is based on the Linux-based OS. Similar commands can be used in MacOS (terminal) or Windows (Anaconda terminal). The following commands should be entered in the terminal.
 
 1. Create a conda environment and activate it.
 ```
