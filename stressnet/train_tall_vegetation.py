@@ -32,7 +32,7 @@ flxnet = {"stn": (os.path.join(inpdir, "sites_tall_vegetation.h5"))} # sites
 # input features (absolute values)
 absfil = {"ate": (os.path.join(inpdir, "ate_tall_vegetation.h5")), # air temperature
           "co2": (os.path.join(inpdir, "co2_tall_vegetation.h5")), # carbon di oxide
-          "ssh": (os.path.join(inpdir, "ssh_tall_vegetation.h5")), # plant available water
+          "ssh": (os.path.join(inpdir, "sst_tall_vegetation.h5")), # plant available water
           "swi": (os.path.join(inpdir, "swi_tall_vegetation.h5")), # incoming shortwave radiation
           "vod": (os.path.join(inpdir, "vod_tall_vegetation.h5")), # vegetation optical depth
           "vpd": (os.path.join(inpdir, "vpd_tall_vegetation.h5"))} # vapor pressure deficit
@@ -40,13 +40,13 @@ absfil = {"ate": (os.path.join(inpdir, "ate_tall_vegetation.h5")), # air tempera
 # input features (anomaly values)
 anmfil = {"ate": (os.path.join(inpdir, "ate_tall_vegetation_anomaly.h5")),
           "co2": (os.path.join(inpdir, "co2_tall_vegetation_anomaly.h5")),
-          "ssh": (os.path.join(inpdir, "ssh_tall_vegetation_anomaly.h5")),
+          "ssh": (os.path.join(inpdir, "sst_tall_vegetation_anomaly.h5")),
           "swi": (os.path.join(inpdir, "swi_tall_vegetation_anomaly.h5")),
           "vod": (os.path.join(inpdir, "vod_tall_vegetation_anomaly.h5")),
           "vpd": (os.path.join(inpdir, "vpd_tall_vegetation_anomaly.h5"))}
 
 # target variable
-tarfil = {"str": (os.path.join(inpdir, "str_short_vegetation.h5"))} # transpiration stress
+tarfil = {"str": (os.path.join(inpdir, "str_tall_vegetation.h5"))} # transpiration stress
 
 # output path for the final trained StressNet
 outdir = "<< Specify path to input data here >>"
