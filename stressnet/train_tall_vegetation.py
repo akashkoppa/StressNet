@@ -10,9 +10,9 @@ Affiliation: Hydro-Climate Extremes Lab (H-CEL), Ghent University, Belgium
 Contact:  akash.koppa@ugent.be
 -------------------------------------------------------------------------------
 Reference:
-Koppa, A., Rains, D., Hulsman, P., & Miralles, D. (2021). A Deep Learning-Based 
-Hybrid Model of Global Terrestrial Evaporation. Preprint. 
-DOI: 10.21203/rs.3.rs-827869/v1
+Koppa, A., Rains, D., Hulsman, P., Poyatos, R., and Miralles, D. G. 
+A deep learning-based hybrid model of global terrestrial evaporation. 
+Nature Communications 13, 1912 (2022). https://doi.org/10.1038/s41467-022-29543-7
 -------------------------------------------------------------------------------
 """
 
