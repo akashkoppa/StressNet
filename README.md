@@ -4,9 +4,14 @@ Author - Akash Koppa
 Contact - akash.koppa@ugent.be
 
 ## Tasklist of improvements v2.0
+- [ ] Use direct partioning of transpiration.
 - [ ] Incorporate plant traits.
 - [ ] Develop the explainable AI (XAI) component of StressNet.
 - [ ] Bayesian Deep Learning to quantify uncertainty.
+- [ ] Generalizable model. 
+
+## Partitioning of Transpiration
+Explore the partitioning methodology described here: [Link to Reference Paper](https://www.sciencedirect.com/science/article/pii/S0168192321004767#!)
 
 ## Plant Traits
 Plant traits are available from different sources:
@@ -15,9 +20,12 @@ Plant traits are available from different sources:
 3. Upscaled leaf traits from University of Valencia [Link to Database](https://isp.uv.es/code/try.html).
 4. Upscaled plant traits from University of Valencia [Still Under Developement?](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiY8fO1-OH1AhWkgP0HHcGqBPoQFnoECAQQAQ&url=https%3A%2F%2Fmeetingorganizer.copernicus.org%2FEGU21%2FEGU21-15835.html%3Fpdf&usg=AOvVaw0ITWUVUjkKrS4z0VNTHinB) 
  
-
 ## Explainable AI (XAI)
 Use the [slundberg/shap](https://github.com/slundberg/shap) repository to apply different XAI methods to derive the importance of covariates
 
 ## Bayesian Deep Learning
 Either use implicit Bayesian deep learning methods or use Monte Carlo simulations. Too early to decide. 
+
+## Generalizable Model
+Currently the model is biased towards regions which have the most number of flux towers. Explore methodologies of developing models which can predict out-of-sample (example: [Link to Reference Paper](https://arxiv.org/abs/2112.08440)
+
