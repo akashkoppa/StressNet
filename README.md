@@ -72,7 +72,7 @@ Koppa, A., Rains, D., Hulsman, P., Poyatos, R., and Miralles, D. G. A deep learn
 
 **Description**: A version of StressNet for tall and short vegetation has been combined with a process-based model - Global Land Evaporation Amsterdam Model (GLEAM) - to create a hybrid model of global terrestrial evaporation. The resulting deep learning formulations and the hybrid model are detailed in the published research article. 
 
-**NOTE**: All the data and codes required to reproduce the figures in the reference research article are available in the `hybrid_paper` folder. The data for the figures are available from https://doi.org/10.5281/zenodo.5886608
+**NOTE**: All the datasets required to reproduce the figures in the reference research article are available in the `hybrid_paper` folder. The data for the figures are available from https://doi.org/10.5281/zenodo.5886608
 
 
 
