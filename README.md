@@ -68,9 +68,9 @@ NOTES:
 
 ### Reference
 
-Koppa, A., Rains, D., Hulsman, P., & Miralles, D. (2021). A Deep Learning-Based Hybrid Model of Global Terrestrial Evaporation. Preprint. DOI: 10.21203/rs.3.rs-827869/v1.
+Koppa, A., Rains, D., Hulsman, P., Poyatos, R., and Miralles, D. G. A deep learning-based hybrid model of global terrestrial evaporation. Nature Communications 13, 1912 (2022). https://doi.org/10.1038/s41467-022-29543-7
 
-**Description**: A version of StressNet for tall and short vegetation has been combined with a process-based model - Global Land Evaporation Amsterdam Model (GLEAM) - to create a hybrid model of global terrestrial evaporation. The resulting deep learning formulations and the hybrid model are detailed in the preprint. The manuscript is currently under review.
+**Description**: A version of StressNet for tall and short vegetation has been combined with a process-based model - Global Land Evaporation Amsterdam Model (GLEAM) - to create a hybrid model of global terrestrial evaporation. The resulting deep learning formulations and the hybrid model are detailed in the published research article. 
 
 **NOTE**: All the data and codes required to reproduce the figures in the reference research article are available in the `hybrid_paper` folder. The data for the figures are available from https://doi.org/10.5281/zenodo.5886608
 
