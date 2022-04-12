@@ -56,7 +56,7 @@ outfil = os.path.join(outdir, "stressnet_demo")
 #%% main code
     
 # read in the fluxnet site locations
-flxsit = pd.read_hdf(path_or_buf = flxnet["stn"],   key="site")
+flxsit = pd.read_hdf(path_or_buf = flxnet["stn"],   key="siteda")
 flxsit = flxsit.dropna(how = "any")
     
 ## select the required cluster
