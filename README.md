@@ -6,14 +6,18 @@ Contact - akash.koppa@ugent.be
 ## Tasklist of improvements v2.0
 - [ ] Use a better model for partitioning transpiration.
 - [ ] Incorporate plant traits.
+- [ ] Incorporate GLEAM-Hydro along with better rooting depth.
 - [ ] Develop the explainable AI (XAI) component of StressNet.
 - [ ] Bayesian Deep Learning to quantify uncertainty.
-- [ ] Generalizable model. 
+- [ ] Generalizable model.
 
 ## Partitioning of Transpiration
 Explore the partitioning methodology described here: [Link to Reference Paper](https://www.sciencedirect.com/science/article/pii/S0168192321004767#!). This methodology might need more information than available from the FLUXNET database. 
 
 Alternatively, explore the use of the TEA algorithm described here: [Link to Reference Paper](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JG004727).
+
+## GLEAM-Hydro
+Update GLEAM according to Petra's GLEAM-Hydro for groundwater access and Shujie's rooting depth map for improved groundwater access.
 
 ## Plant Traits
 Plant traits are available from different sources:
