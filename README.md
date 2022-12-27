@@ -7,6 +7,7 @@ Contact - akash.koppa@ugent.be
 - [ ] Use a better model for partitioning transpiration.
 - [ ] Incorporate plant traits.
 - [ ] Incorporate GLEAM-Hydro along with better rooting depth.
+- [ ] Incorporate nutrient limitation
 - [ ] Develop the explainable AI (XAI) component of StressNet.
 - [ ] Bayesian Deep Learning to quantify uncertainty.
 - [ ] Generalizable model.
@@ -16,9 +17,6 @@ Explore the partitioning methodology described here: [Link to Reference Paper](h
 
 Alternatively, explore the use of the TEA algorithm described here: [Link to Reference Paper](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JG004727).
 
-## GLEAM-Hydro
-Update GLEAM according to Petra's GLEAM-Hydro for groundwater access and Shujie's rooting depth map for improved groundwater access.
-
 ## Plant Traits
 Plant traits are available from different sources:
 1. TRY - global plant trait database [Link to Database](https://www.try-db.org/TryWeb/Home.php).
@@ -27,6 +25,12 @@ Plant traits are available from different sources:
 4. Upscaled plant traits from University of Valencia [Still Under Developement?](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiY8fO1-OH1AhWkgP0HHcGqBPoQFnoECAQQAQ&url=https%3A%2F%2Fmeetingorganizer.copernicus.org%2FEGU21%2FEGU21-15835.html%3Fpdf&usg=AOvVaw0ITWUVUjkKrS4z0VNTHinB) 
 
 NOTE: Spatially continuous upscaled plant hydraulic traits are currently not available. Wait till Alvaro Moreno can use Mencuccini's database to upscale these. 
+
+## GLEAM-Hydro
+Update GLEAM according to Petra's GLEAM-Hydro for groundwater access and Shujie's rooting depth map for improved groundwater access.
+
+## Nutrient Limitation
+Nitrogen and Phosporous limitation data based on: [Link to Reference Paper](https://www.nature.com/articles/s41561-019-0530-4)
  
 ## Explainable AI (XAI)
 Use the [slundberg/shap](https://github.com/slundberg/shap) repository to apply different XAI methods to derive the importance of covariates
