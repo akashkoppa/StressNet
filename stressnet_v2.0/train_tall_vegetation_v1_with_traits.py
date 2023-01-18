@@ -33,7 +33,7 @@ flxnet = {"stn": (os.path.join(inpdir, "sites_tall_vegetation.h5"))} # sites
 # input features (absolute values)
 absfil = {"ate": (os.path.join(inpdir, "ate_tall_vegetation.h5")), # air temperature
           "co2": (os.path.join(inpdir, "co2_tall_vegetation.h5")), # carbon di oxide
-          "ssh": (os.path.join(inpdir, "ssh_tall_vegetation.h5")), # plant available water
+          "sst": (os.path.join(inpdir, "sst_tall_vegetation.h5")), # plant available water
           "swi": (os.path.join(inpdir, "swi_tall_vegetation.h5")), # incoming shortwave radiation
           "vod": (os.path.join(inpdir, "vod_tall_vegetation.h5")), # vegetation optical depth
           "vpd": (os.path.join(inpdir, "vpd_tall_vegetation.h5"))} # vapor pressure deficit
@@ -41,17 +41,28 @@ absfil = {"ate": (os.path.join(inpdir, "ate_tall_vegetation.h5")), # air tempera
 # input features (anomaly values)
 anmfil = {"ate": (os.path.join(inpdir, "ate_tall_vegetation_anomaly.h5")),
           "co2": (os.path.join(inpdir, "co2_tall_vegetation_anomaly.h5")),
-          "ssh": (os.path.join(inpdir, "ssh_tall_vegetation_anomaly.h5")),
+          "sst": (os.path.join(inpdir, "sst_tall_vegetation_anomaly.h5")),
           "swi": (os.path.join(inpdir, "swi_tall_vegetation_anomaly.h5")),
           "vod": (os.path.join(inpdir, "vod_tall_vegetation_anomaly.h5")),
           "vpd": (os.path.join(inpdir, "vpd_tall_vegetation_anomaly.h5"))}
 
+absfil_traits = {"iso": (os.path.join(inpdir_traits, "iso_tall.h5")), # isohydricity
+                 "npl": (os.path.join(inpdir_traits, "npl_tall.h5")), # nitrogen and phosphorous limitation
+                 "lnc": (os.path.join(inpdir_traits, "lnc_tall.h5")), # leaf nitrogen content
+                 "lpc": (os.path.join(inpdir_traits, "lpc_tall.h5")), # leaf phosphorous content
+                 "sla": (os.path.join(inpdir_traits, "sla_tall.h5")), # specific leaf area
+                 "amd": (os.path.join(inpdir_traits, "amd_tall.h5")), # % of arbuscular mycorrhizal plant biomass
+                 "emd": (os.path.join(inpdir_traits, "emd_tall.h5")), # % of ectomycorrhizal plant biomass
+                 "erd": (os.path.join(inpdir_traits, "erd_tall.h5")), # % of ericoid mycorrhizal plant biomass
+                 "nmd": (os.path.join(inpdir_traits, "nmd_tall.h5"))  # % of non-mycorrhizal plant biomass
+                 }
+
 # target variable
-tarfil = {"str": (os.path.join(inpdir, "str_short_vegetation.h5"))} # transpiration stress
+tarfil = {"str": (os.path.join(inpdir, "str_tall_vegetation.h5"))} # transpiration stress
 
 # output path for the final trained StressNet
-outdir = "<< Specify path to input data here >>"
-outfil = os.path.join(outdir, "stressnet_tall_vegetation")
+outdir = "/media/akashkoppa/work/gleam_ml/data/output/stressnet_v1_with_traits/tv"
+outfil = os.path.join(outdir, "stressnet_tv_v1_with_traits_1")
 
 #%% main code
 def main():
@@ -67,43 +78,44 @@ def main():
     ## main code
     # ----- data preprocessing for the no-memory standard deep learning model -----
     # get the list of stations to subset the input data 
-    # read in the fluxnet site locations
+    #%% read in the fluxnet site locations
     flxsit = pd.read_hdf(path_or_buf = flxnet["stn"],   key="site")
     flxsit = flxsit.dropna(how = "any")
     
-    ## select the required cluster
+    #%% select the required cluster
     sitreq = flxsit.index
     
-    ## create a combined tensorflow dataset
-    trndat, tstdat, sclmin, sclmax = h5totf(filabs = absfil, 
-                                            filanm = anmfil, 
-                                            filtar = tarfil,
-                                            sitreq = sitreq,
-                                            shufle = True,
-                                            batchn = 100,
-                                            trnper = 85)
+    #%% create a combined tensorflow dataset
+    trndat, tstdat, sclmin, sclmax, inpshp = h5totf(filabs = absfil,
+                                                    filabs_traits = absfil_traits,
+                                                    filanm = anmfil, 
+                                                    filtar = tarfil,
+                                                    sitreq = sitreq,
+                                                    shufle = True,
+                                                    batchn = 100,
+                                                    trnper = 85)
     
-    ## get the required model 
-    tstmod = funmod(inpshp = 12, 
+    #%% get the required model 
+    tstmod = funmod(inpshp = inpshp, 
                     losobj = kge,
                     metric = kge,
                     optmod = tf.keras.optimizers.Adam(learning_rate = 0.000142))  
 
-    ## train the dataset
+    #%% train the dataset
     histst = tstmod.fit(trndat, 
                         epochs = 700,
                         validation_data = tstdat)
 
-    ## plot evolution
+    #%% plot evolution
     evolut = pd.DataFrame(histst.history)
     evorms = evolut[["kge","val_kge"]]
     evorms.plot()
     
-    # save the model
+    #%% save the model
     tstmod.save(outfil)
     
-## functions
-def h5totf(filabs, filanm, filtar, sitreq, shufle, batchn, trnper):
+#%% functions
+def h5totf(filabs, filabs_traits, filanm, filtar, sitreq, shufle, batchn, trnper):
     """
     Script to convert the input hdf5 files into tensorflow datasets which act 
     as the primary input for the deep neural network
@@ -112,6 +124,8 @@ def h5totf(filabs, filanm, filtar, sitreq, shufle, batchn, trnper):
     ----------
     filabs : dictionary
         full paths to input feature data (absolute values)
+    filabs_traits: dictionary
+        full paths to input trait data (absolute values)
     filanm : dictionary
         full path to input feature data (anomalies)
     filtar : dictionary
@@ -132,10 +146,11 @@ def h5totf(filabs, filanm, filtar, sitreq, shufle, batchn, trnper):
     retn02 : A tf.dataset with the testing input features and target variables
     retn03 : A vector with min values of the input features and target variables
     retn04 : A vector with max values of the input features and target variables
+    retn05 : A scalar containing the number of input features
 
     """
     
-    # loop through the different input variables and create final dictionary
+    #%% loop through the different input variables and create final dictionary
     inpdat = {}
     for i in filabs.keys():
         print("var under process: " + i)
@@ -147,18 +162,30 @@ def h5totf(filabs, filanm, filtar, sitreq, shufle, batchn, trnper):
         # store the data in dictionary
         inpdat[i] = tmpabs
         inpdat[i+"anm"] = tmpanm
-    # target variable    
+    
+    #%% trait variables (replicate static values for every data point)
+    for i in filabs_traits.keys():
+        print("var under process: " + i)
+        # read in the trait values
+        tmpabs_traits = pd.read_hdf(filabs_traits[i])
+        tmpdat_traits = inpdat[list(inpdat.keys())[0]]
+        for j in tmpabs_traits.index:
+            tmpdat_traits[j] = tmpabs_traits.loc[j]
+        inpdat[i] = tmpdat_traits
+        
+    #%% target variable    
     tardat = {}
     for i in filtar.keys():
         print("var under process: " + i)
         tmptar = pd.read_hdf(filtar[i])
+        tmptar = tmptar.fillna(0.0)
         #tmptar[tmptar > 10] = np.nan
         tmptar[tmptar > 1] = 1.0
         tardat[i] = tmptar
     
-    print(inpdat.keys())
+    #print(inpdat.keys())
         
-    # loop through the stations and create a final dataset containing only 
+    #%% loop through the stations and create a final dataset containing only 
     # the input variables
     datlst = []
     for i in sitreq:
@@ -181,41 +208,41 @@ def h5totf(filabs, filanm, filtar, sitreq, shufle, batchn, trnper):
             
     del dattmp
     
-    # create the final pandas data frame
+    #%% create the final pandas data frame
     datfin = pd.concat(datlst, ignore_index = True)
     datfin = datfin.dropna(axis = 0, how = "any")
     print(datfin.shape)
     print(datfin.columns)
    
-    # reset index 
+    #%% reset index 
     datfin = datfin.reset_index(drop = True)
     
-    # shuffle the data
+    #%% shuffle the data
     if shufle == True:
         print(" >> shuffling data")
         datfin = datfin.sample(frac = 1)
     
-    # normalize by max 
+    #%% normalize by max 
     print(" >> normalizing the data by max")
     tarval = datfin.pop(list(tardat.keys())[0])
     
-    # calculate the max and min for backup
+    #%% calculate the max and min for backup
     datmin = datfin.quantile(0.05)
     datmax = datfin.quantile(1.00)
     datfin = datfin/datmax
     
-    # convert the pandas data frame to a tf.dataset
+    #%% convert the pandas data frame to a tf.dataset
     print(" >> Converting data frame into a tensorflow dataset")
     print(datfin.columns)
     print(datfin.shape)
     fullda = tf.data.Dataset.from_tensor_slices((datfin.values, 
                                                  tarval.values))
     
-    # split into training and testing datasets
+    #%% split into training and testing datasets
     trnsiz = int((trnper/100) * len(datfin))
-    # training dataset
+    #%% training dataset
     retn01 = fullda.take(trnsiz)
-    # testing dataset
+    #%% testing dataset
     retn02 = fullda.skip(trnsiz)
         
     if shufle == True:
@@ -227,10 +254,11 @@ def h5totf(filabs, filanm, filtar, sitreq, shufle, batchn, trnper):
     retn02 = retn02.batch(batchn)
     retn03 = datmin
     retn04 = datmax
+    retn05 = len(inpdat)
     
-    return retn01, retn02, retn03, retn04
+    return retn01, retn02, retn03, retn04, retn05
 
-# kling gupta efficiency
+#%% kling gupta efficiency
 def kge(actual, predct):
     """
     a custom loss function based on the Kling Gupta Efficiency
@@ -277,7 +305,7 @@ def kge(actual, predct):
     
     return retn01
 
-# deep learning model
+#%% deep learning model
 def funmod(inpshp, losobj, metric, optmod):
     """
     Function to create a machine learning model using the Functional API module
