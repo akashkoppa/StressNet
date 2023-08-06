@@ -23,7 +23,7 @@ import seaborn as sb
 inpdir = "<< Specify path to input data here >>"
 reffil = {"ref": os.path.join(inpdir, "e_observed_sites.h5")}
 modfil = {"mo1": os.path.join(inpdir, "e_process_sites.h5"),
-          "mo2": os.path.join(inpdir, "e_process_sites.h5")}
+          "mo2": os.path.join(inpdir, "e_hybrid_sites.h5")}
 modmap = {"ref": "FLUXNET",
           "mo1": "GLEAMv35b",
           "mo2": "GLEAMHybrid"}
